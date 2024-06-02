@@ -1,0 +1,313 @@
+@startuml diagrama_clases
+
+abstract class Persona{
+    +id: int
+    +nombre: String
+    +apellido: String
+    +email: String
+}
+' Definición de roles de usuario
+class Usuario extends Persona {
+    +contraseña: String
+    +rol: Rol
+    +autenticar()
+    +autorizar()
+}
+
+class Rol {
+    +id: int
+    +nombre: String
+    +permisos: List<Permiso>
+}
+
+class Permiso {
+    +id: int
+    +nombre: String
+    +descripcion: String
+}
+
+class Administrador extends Usuario
+
+class Tecnico extends Usuario
+
+class Cliente extends Persona{
+    +ci: String
+    +ruc: String
+    +direccion: String
+    +celular: String
+    +tipo: String /' juridica, fisica '/
+    +crear()
+    +modificar()
+}
+
+' Programación y modificación de citas en línea
+class Cita {
+    +id: int
+    +fechahora: Datetime
+    +cliente: Cliente
+    +estado: String
+    +programar()
+    +modificar()
+    +cancelar()
+}
+
+class Agenda {
+    +citas: List<Cita>
+    +visualizarDisponibilidad()
+}
+
+
+' Automatización de órdenes de trabajo
+class OrdenTrabajo {
+    +id: int
+    +fechaCreacion: Date
+    +vehiculo: Vehiculo
+    +tecnico: Tecnico
+    +estado: String
+    +descripcion: String
+    +ordenTrabajodetalle:List<OrdenTrabajoDetalle>
+    +crear()
+    +modificar()
+    +cerrar()
+    +consultar()
+}
+
+class OrdenTrabajoDetalle{
+    +id: int
+    +articulo:Articulo
+    +cantidad:int
+    +crear()
+    +modificar()
+}
+
+class Factura {
+    +id: int
+    +condicion: String
+    +talonario: Talonario
+    +fecha: Date
+    +cliente: Cliente
+    +total: double
+    +gravadas: double
+    +exentas: double
+    +totalIva: double
+    +estado: String
+    +itemsFactura: List<ItemFactura>
+    +generar()
+    +enviar()
+    +anular()
+}
+
+class ItemFactura {
+    +id: int
+    +articulo: Articulo
+    +precioUnitario: double
+    +cantidad: int
+    +precioTotalIva10: double
+    +precioTotalExentas: double
+    +precioTotalIva5: double
+    +iva: Iva
+    +generar()
+}
+
+class Iva {
+    +id: int
+    +descripcion: String
+    +valor: float
+}
+
+class Talonario {
+    +tipo: String
+    +punto_expedicion: String
+    +nro_inicial: double
+    +nro_final: double
+    +timbrado: String
+    +inicio_vigencia: Date
+    +fin_vigencia: Date
+    +estado: String
+}
+
+' Gestión de inventario
+class Inventario {
+    +id:int
+    +items: List<ItemIventario>
+    +fechaCreacion: Datetime
+    +monitorearStock()
+    +generarOrdenCompra()
+}
+
+class ItemIventario {
+    +id: int
+    +articulo: Articulo
+    +cantidad: int
+    +crear()
+
+}
+
+class ArticuloStock{
+    +id: int
+    +cantidad: int
+    +estado: String
+    +lote: String
+    +fechaVencimiento: Datetime
+    +crear()
+    +actualizar()
+}
+
+class Categoria{
+    +id: int
+    +nombre: String
+    +descripcion: String
+    +crear()
+    +actualizar()
+}
+
+class Articulo {
+    +id: int
+    +descripcion: String
+    +categoria: Categoria
+    +estado: String
+    +precioVenta: double
+    +preciocosto: double
+    +cantidadMinima: int
+    +crear()
+    +modificar()
+    +merma()
+}
+
+
+' Gestión de feedback del cliente
+class Feedback {
+    +id: int
+    +cliente: Cliente
+    +comentario: String
+    +calificacion: int
+    +fecha: Date
+    +gestionar()
+}
+
+class Encuesta {
+    +id: int
+    +preguntas: List<String>
+    +respuestas: List<String>
+    +enviar()
+}
+
+' Cumplimiento de normativas
+/'class Normativa {
+    +id: int
+    +descripcion: String
+    +documentar()
+}'/
+
+/'class Residuo {
+    +id: int
+    +tipo: String
+    +cantidad: double
+    +gestionar()
+}'/
+
+' Dashboards y reportes
+class Dashboard {
+    +widgets: List<Widget>
+    +visualizar()
+}
+
+class Reporte {
+    +id: int
+    +titulo: String
+    +contenido: String
+    +generar()
+}
+
+' Seguimiento de calidad de servicio
+/'class ControlCalidad {
+    +id: int
+    +inspecciones: List<Inspeccion>
+    +registrar()
+}'/
+
+class Inspeccion {
+    +id: int
+    +fecha: Date
+    +detalles: String
+    +ordenTrabajo: OrdenTrabajo
+    +consultar()
+}
+
+class Presupuesto{
+    +id:int
+    +cliente:Cliente
+    +fecha:Datetime
+    +valides:Datetime
+    +presupuestoDetallet:List<PresupuestoDetalle>
+    +total:double
+    +condiciones:String
+    +estado:String
+    +crear()
+    +consultar()
+    +actualizar()
+}
+
+class PresupuestoDetalle{
+    +id:int
+    +articulo:Articulo
+    +cantidad:int
+    +precio:double
+    +crear()
+}
+
+class Egresos{
+    +id:int
+    +periodo:Datetime
+    +total:double
+    +crear()
+    +consultar()
+}
+
+class DetalleEgreso{
+    +id:int
+    +description:String
+    +monto:double
+    +rubro:String
+    +crear()
+    +modificat()
+}
+
+' Relaciones
+Rol "1" -- "1..*" Permiso: contiene
+Usuario "1" -- "1" Rol: tiene
+Usuario "1" -- "1..*" Cita: programa
+Cliente "1" -- "1..*" Feedback: proporciona
+Cliente "1" -- "1..*" OrdenTrabajo: solicita
+OrdenTrabajo "1" -- "1" Tecnico: asigna
+OrdenTrabajo "1" -- "1" Factura: genera
+Factura "1" -- "1" Talonario: usa
+Factura "1" -- "1..*" ItemFactura: contiene
+ItemFactura "1" -- "1" Articulo: contiene
+ItemFactura "1" -- "1" Iva: contiene
+Cita "1" -- "1" OrdenTrabajo: crea
+Inventario "1" -- "0..*" ItemIventario: contiene
+''Residuo "1" -- "1" Normativa: cumple
+Dashboard "1" -- "0..*" Reporte: genera
+'ControlCalidad "1" -- "0..*" Inspeccion: registra
+Inspeccion "1" -- "1" OrdenTrabajo
+Articulo "1" -- "1" ArticuloStock: contiene
+Presupuesto "1" -- "1..*"PresupuestoDetalle: contiene
+PresupuestoDetalle "1..*" -- "1..*"Articulo: contiene
+Egresos "1" -- "1..*"DetalleEgreso: contiene
+Categoria "0..*" -- "1"Articulo
+ItemIventario "1..*" -- "0..*" Articulo
+OrdenTrabajo "1..*" -- "1" OrdenTrabajoDetalle
+Agenda "1..*" -- "1" Cita
+@enduml
+
+/' Estuve modificando algunas cosas:
+Creo que podriamos dejar de usar las siguientes clases, decime que opinas
+- Agenda -> manejarnos solo con citas 
+- Normativas -> creo que eso escapa ya al sistema en si
+- ControlCalidad -> Basteria creo, con tener un campo "aceptadoCliente" en ördenTrabajo" capaz
+- Residuos -> esta clase no me queda muy claro su funcion
+
+Aparte agregar las clases de:
+- Vehiculo -> Su relacion
+- y alguna otra mas que tengas en mente'/
