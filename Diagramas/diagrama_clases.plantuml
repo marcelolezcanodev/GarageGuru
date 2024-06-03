@@ -1,28 +1,34 @@
 @startuml diagrama_clases
 
 abstract class Persona{
-    +id: int
-    +nombre: String
-    +apellido: String
-    +email: String
+    -id: int
+    -nombre: String
+    -apellido: String
+    -ci: String
+    -ruc: String
+    -direccion: String
+    -celular: String
+    -email: String
 }
+
 ' Definición de roles de usuario
 class Usuario extends Persona {
-    +contraseña: String
-    +rol: Rol
+    -nombre_usuario: String
+    -contraseña: String
+    -rol: Rol
     +autenticar()
     +autorizar()
 }
 
 class Rol {
-    +id: int
-    +nombre: String
+    -id: int
+    -nombre: String
     +permisos: List<Permiso>
 }
 
 class Permiso {
-    +id: int
-    +nombre: String
+    -id: int
+    -nombre: String
     +descripcion: String
 }
 
@@ -30,42 +36,46 @@ class Administrador extends Usuario
 
 class Tecnico extends Usuario
 
-class Cliente extends Persona{
-    +ci: String
-    +ruc: String
-    +direccion: String
-    +celular: String
-    +tipo: String /' juridica, fisica '/
+class Proveedor extends Persona {
+    -nombre_comercial: String
     +crear()
     +modificar()
 }
 
+class Cliente extends Usuario{
+    -tipo: String
+    +crear()
+    +modificar()
+}
+note right of Cliente::tipo
+    Fisica, Juridica
+end note
+
 ' Programación y modificación de citas en línea
 class Cita {
-    +id: int
-    +fechahora: Datetime
-    +cliente: Cliente
-    +estado: String
+    -id: int
+    -fechahora: Datetime
+    -cliente: Cliente
+    -estado: String
     +programar()
     +modificar()
     +cancelar()
 }
 
 class Agenda {
-    +citas: List<Cita>
+    -citas: List<Cita>
     +visualizarDisponibilidad()
 }
 
-
 ' Automatización de órdenes de trabajo
 class OrdenTrabajo {
-    +id: int
-    +fechaCreacion: Date
-    +vehiculo: Vehiculo
-    +tecnico: Tecnico
-    +estado: String
-    +descripcion: String
-    +ordenTrabajodetalle:List<OrdenTrabajoDetalle>
+    -id: int
+    -fechaCreacion: Date
+    -vehiculo: Vehiculo
+    -tecnico: Tecnico
+    -estado: String
+    -descripcion: String
+    -ordenTrabajodetalle:List<OrdenTrabajoDetalle>
     +crear()
     +modificar()
     +cerrar()
@@ -73,122 +83,128 @@ class OrdenTrabajo {
 }
 
 class OrdenTrabajoDetalle{
-    +id: int
-    +articulo:Articulo
-    +cantidad:int
+    -id: int
+    -articulo:Articulo
+    -cantidad:int
     +crear()
     +modificar()
 }
 
 class Factura {
-    +id: int
-    +condicion: String
-    +talonario: Talonario
-    +fecha: Date
-    +cliente: Cliente
-    +total: double
-    +gravadas: double
-    +exentas: double
-    +totalIva: double
-    +estado: String
-    +itemsFactura: List<ItemFactura>
+    -id: int
+    -condicion: String
+    -talonario: Talonario
+    -fecha: Date
+    -cliente: Cliente
+    -total: double
+    -gravadas: double
+    -exentas: double
+    -totalIva: double
+    -estado: String
+    -cobro: List<Cobro>
+    -itemsFactura: List<ItemFactura>
     +generar()
     +enviar()
     +anular()
 }
 
 class ItemFactura {
-    +id: int
-    +articulo: Articulo
-    +precioUnitario: double
-    +cantidad: int
-    +precioTotalIva10: double
-    +precioTotalExentas: double
-    +precioTotalIva5: double
-    +iva: Iva
-    +generar()
+    -id: int
+    -articulo: Articulo
+    -precioUnitario: double
+    -cantidad: int
+    -precioTotalIva10: double
+    -precioTotalExentas: double
+    -precioTotalIva5: double
+    -iva: Iva
+    +crear()
+    +eliminar()
 }
 
 class Iva {
-    +id: int
-    +descripcion: String
-    +valor: float
+    -id: int
+    -descripcion: String
+    -valor: float
+    +crear()
+    +modificar()
 }
 
 class Talonario {
-    +tipo: String
-    +punto_expedicion: String
-    +nro_inicial: double
-    +nro_final: double
-    +timbrado: String
-    +inicio_vigencia: Date
-    +fin_vigencia: Date
-    +estado: String
+    -tipo: String
+    -punto_expedicion: String
+    -nro_inicial: double
+    -nro_final: double
+    -timbrado: String
+    -inicio_vigencia: Date
+    -fin_vigencia: Date
+    -estado: String
+    +crear()
+    +modificar()
 }
 
 ' Gestión de inventario
 class Inventario {
-    +id:int
-    +items: List<ItemIventario>
-    +fechaCreacion: Datetime
+    -id:int
+    -items: List<ItemIventario>
+    -fechaCreacion: Datetime
     +monitorearStock()
     +generarOrdenCompra()
 }
 
-class ItemIventario {
-    +id: int
-    +articulo: Articulo
-    +cantidad: int
+class ItemInventario {
+    -id: int
+    -articulo: Articulo
+    -cantidad: int
     +crear()
-
+    +modificar()
+    +eliminar()
 }
 
 class ArticuloStock{
-    +id: int
-    +cantidad: int
-    +estado: String
-    +lote: String
-    +fechaVencimiento: Datetime
+    -id: int
+    -cantidad: int
+    -estado: String
+    -lote: String
+    -fechaVencimiento: Datetime
     +crear()
     +actualizar()
 }
 
 class Categoria{
-    +id: int
-    +nombre: String
-    +descripcion: String
+    -id: int
+    -nombre: String
+    -descripcion: String
     +crear()
     +actualizar()
 }
 
 class Articulo {
-    +id: int
-    +descripcion: String
-    +categoria: Categoria
-    +estado: String
-    +precioVenta: double
-    +preciocosto: double
-    +cantidadMinima: int
+    -id: int
+    -descripcion: String
+    -categoria: Categoria
+    -estado: String
+    -precioVenta: double
+    -preciocosto: double
+    -cantidadMinima: int
     +crear()
     +modificar()
     +merma()
 }
 
-
 ' Gestión de feedback del cliente
 class Feedback {
-    +id: int
-    +cliente: Cliente
-    +comentario: String
-    +calificacion: int
-    +fecha: Date
+    -id: int
+    -cliente: Cliente
+    -comentario: String
+    -calificacion: int
+    -fechaHora: Datetime
     +gestionar()
 }
 
 class Encuesta {
-    +id: int
-    +preguntas: List<String>
-    +respuestas: List<String>
+    -id: int
+    -preguntas: List<String>
+    -respuestas: List<String>
     +enviar()
 }
 
@@ -208,14 +224,14 @@ class Encuesta {
 
 ' Dashboards y reportes
 class Dashboard {
-    +widgets: List<Widget>
+    -widgets: List<Widget>
     +visualizar()
 }
 
 class Reporte {
-    +id: int
-    +titulo: String
-    +contenido: String
+    -id: int
+    -titulo: String
+    -contenido: String
     +generar()
 }
 
@@ -227,58 +243,111 @@ class Reporte {
 }'/
 
 class Inspeccion {
-    +id: int
-    +fecha: Date
-    +detalles: String
-    +ordenTrabajo: OrdenTrabajo
+    -id: int
+    -fecha: Date
+    -detalles: String
+    -ordenTrabajo: OrdenTrabajo
     +consultar()
 }
 
 class Presupuesto{
-    +id:int
-    +cliente:Cliente
-    +fecha:Datetime
-    +valides:Datetime
-    +presupuestoDetallet:List<PresupuestoDetalle>
-    +total:double
-    +condiciones:String
-    +estado:String
+    -id:int
+    -cliente:Cliente
+    -fecha:Datetime
+    -valides:Datetime
+    -presupuestoDetallet:List<PresupuestoDetalle>
+    -total:double
+    -condiciones:String
+    -estado:String
     +crear()
     +consultar()
     +actualizar()
 }
 
 class PresupuestoDetalle{
-    +id:int
-    +articulo:Articulo
-    +cantidad:int
-    +precio:double
+    -id:int
+    -articulo:Articulo
+    -cantidad:int
+    -precio:double
     +crear()
 }
 
 class Egresos{
-    +id:int
-    +periodo:Datetime
-    +total:double
+    -id:int
+    -periodo:Datetime
+    -total:double
     +crear()
     +consultar()
 }
 
 class DetalleEgreso{
-    +id:int
-    +description:String
-    +monto:double
-    +rubro:String
+    -id:int
+    -description:String
+    -monto:double
+    -rubro:String
     +crear()
-    +modificat()
+    +modificar()
+}
+
+class Vehiculo {
+    -id: int
+    -tipo: String
+    -marca: String
+    -modelo: String
+    -año: int
+    -patente: String
+    -vin: String
+    -nro_motor: String
+    -nro_chasis: String
+    -color: String
+    -tipo: String
+    -kilometraje: int
+    -propietario: Cliente
+    -estado: String
+    -fecha_ultima_revision: Date
+    -comentarios: String
+    +crear()
+    +modificar()
+}
+
+class Recibo {
+    -id: int
+    -fecha: Date
+    -cliente: Cliente
+    -total: double
+    -cobro: List<Cobro>
+    -detalleRecibo: List<DetalleRecibo>
+    +crear()
+    +anular()
+    +consultar()
+}
+
+class DetalleRecibo {
+    -id: int
+    -factura: Factura
+    -monto: double
+    +crear()
+    +modificar()
+    +eliminar()
+}
+
+class Cobro {
+    -id: int
+    -tipo: String
+    -nro_documento: String
+    -monto: double
+    +crear()
+    +modificar()
+    +eliminar()
 }
 
 ' Relaciones
 Rol "1" -- "1..*" Permiso: contiene
 Usuario "1" -- "1" Rol: tiene
-Usuario "1" -- "1..*" Cita: programa
+Cliente "1" -- "1..*" Cita: programa
 Cliente "1" -- "1..*" Feedback: proporciona
-Cliente "1" -- "1..*" OrdenTrabajo: solicita
+'Cliente "1" -- "1..*" OrdenTrabajo: solicita
+Cliente "1" -- "1..*" Vehiculo: tiene
 OrdenTrabajo "1" -- "1" Tecnico: asigna
 OrdenTrabajo "1" -- "1" Factura: genera
 Factura "1" -- "1" Talonario: usa
@@ -286,19 +355,22 @@ Factura "1" -- "1..*" ItemFactura: contiene
 ItemFactura "1" -- "1" Articulo: contiene
 ItemFactura "1" -- "1" Iva: contiene
 Cita "1" -- "1" OrdenTrabajo: crea
-Inventario "1" -- "0..*" ItemIventario: contiene
+Inventario "1" -- "0..*" ItemInventario: contiene
 ''Residuo "1" -- "1" Normativa: cumple
 Dashboard "1" -- "0..*" Reporte: genera
 'ControlCalidad "1" -- "0..*" Inspeccion: registra
 Inspeccion "1" -- "1" OrdenTrabajo
 Articulo "1" -- "1" ArticuloStock: contiene
-Presupuesto "1" -- "1..*"PresupuestoDetalle: contiene
-PresupuestoDetalle "1..*" -- "1..*"Articulo: contiene
+Presupuesto "1" -- "1..*" PresupuestoDetalle: contiene
+PresupuestoDetalle "1..*" -- "1" Articulo: contiene
 Egresos "1" -- "1..*"DetalleEgreso: contiene
-Categoria "0..*" -- "1"Articulo
-ItemIventario "1..*" -- "0..*" Articulo
+Categoria "1" -- "0..*"Articulo: tiene
+ItemIventario "1..*" -- "1" Articulo: tiene
 OrdenTrabajo "1..*" -- "1" OrdenTrabajoDetalle
-Agenda "1..*" -- "1" Cita
+Agenda "1..*" -- "1" Cita: tiene
+Recibo "1" -- "1..*" DetalleRecibo: tiene
+Factura "1" -- "1..*" Cobro: tiene
+Recibo "1" -- "1..*" Cobro: tiene
 @enduml
 
 /' Estuve modificando algunas cosas:
