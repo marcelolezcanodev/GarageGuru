@@ -365,7 +365,7 @@ Presupuesto "1" -- "1..*" PresupuestoDetalle: contiene
 PresupuestoDetalle "1..*" -- "1" Articulo: contiene
 Egresos "1" -- "1..*"DetalleEgreso: contiene
 Categoria "1" -- "0..*"Articulo: tiene
-ItemIventario "1..*" -- "1" Articulo: tiene
+ItemInventario "1..*" -- "1" Articulo: tiene
 OrdenTrabajo "1..*" -- "1" OrdenTrabajoDetalle
 Agenda "1..*" -- "1" Cita: tiene
 Recibo "1" -- "1..*" DetalleRecibo: tiene
