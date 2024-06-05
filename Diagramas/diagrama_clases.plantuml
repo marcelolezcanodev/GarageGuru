@@ -42,7 +42,7 @@ class Proveedor extends Persona {
     +modificar()
 }
 
-class Cliente extends Usuario{
+class Cliente{
     -tipo: String
     +crear()
     +modificar()
@@ -55,7 +55,7 @@ end note
 class Cita {
     -id: int
     -fechahora: Datetime
-    -cliente: Cliente
+    -vehiculo: Vehiculo
     -estado: String
     +programar()
     +modificar()
@@ -193,21 +193,21 @@ class Articulo {
 }
 
 ' Gestión de feedback del cliente
-class Feedback {
+/'class Feedback {
     -id: int
     -cliente: Cliente
     -comentario: String
     -calificacion: int
     -fechaHora: Datetime
     +gestionar()
-}
+}'/
 
-class Encuesta {
+/'class Encuesta {
     -id: int
     -preguntas: List<String>
     -respuestas: List<String>
     +enviar()
-}
+}'/
 
 ' Cumplimiento de normativas
 /'class Normativa {
@@ -224,10 +224,10 @@ class Encuesta {
 }'/
 
 ' Dashboards y reportes
-class Dashboard {
+/'class Dashboard {
     -widgets: List<Widget>
     +visualizar()
-}
+}'/
 
 class Reporte {
     -id: int
@@ -243,13 +243,13 @@ class Reporte {
     +registrar()
 }'/
 
-class Inspeccion {
+/'class Inspeccion {
     -id: int
     -fecha: Date
     -detalles: String
     -ordenTrabajo: OrdenTrabajo
     +consultar()
-}
+}'/
 
 class Presupuesto{
     -id:int
@@ -345,22 +345,26 @@ class Cobro {
 ' Relaciones
 Rol "1" -- "1..*" Permiso: contiene
 Usuario "1" -- "1" Rol: tiene
-Cliente "1" -- "1..*" Cita: programa
-Cliente "1" -- "1..*" Feedback: proporciona
+Usuario  --  Cliente: gestiona
+Usuario "1" -- "1..*" Cita: programa
+Usuario "1" -- "1..*" Factura: gestiona
+Usuario  --  Presupuesto: gestiona
+'Cliente "1" -- "1..*" Feedback: proporciona
 'Cliente "1" -- "1..*" OrdenTrabajo: solicita
 Cliente "1" -- "1..*" Vehiculo: tiene
-OrdenTrabajo "1" -- "1" Tecnico: asigna
-OrdenTrabajo "1" -- "1" Factura: genera
+Vehiculo "1" -- "1..*" Cita: tiene
+OrdenTrabajo "1" -- "1..*" Tecnico: asigna
+OrdenTrabajo "1" -- "0..1" Factura: tiene
 Factura "1" -- "1" Talonario: usa
 Factura "1" -- "1..*" ItemFactura: contiene
-ItemFactura "1" -- "1" Articulo: contiene
+ItemFactura "1..*" -- "1" Articulo: contiene
 ItemFactura "1" -- "1" Iva: contiene
 Cita "1" -- "1" OrdenTrabajo: crea
-Inventario "1" -- "0..*" ItemInventario: contiene
-''Residuo "1" -- "1" Normativa: cumple
-Dashboard "1" -- "0..*" Reporte: genera
+Inventario "1" -- "1..*" ItemInventario: contiene
+'Residuo "1" -- "1" Normativa: cumple
+'Dashboard "1" -- "0..*" Reporte: genera
 'ControlCalidad "1" -- "0..*" Inspeccion: registra
-Inspeccion "1" -- "1" OrdenTrabajo
+'Inspeccion "1" -- "1" OrdenTrabajo
 Articulo "1" -- "1" ArticuloStock: contiene
 Presupuesto "1" -- "1..*" PresupuestoDetalle: contiene
 PresupuestoDetalle "1..*" -- "1" Articulo: contiene
@@ -372,6 +376,8 @@ Agenda "1..*" -- "1" Cita: tiene
 Recibo "1" -- "1..*" DetalleRecibo: tiene
 Factura "1" -- "1..*" Cobro: tiene
 Recibo "1" -- "1..*" Cobro: tiene
+Administrador "1" -- "0..*" Reporte: Gestiona
+Administrador "1" -- "0..*" Egresos: Gestiona
 @enduml
 
 /' Estuve modificando algunas cosas:
