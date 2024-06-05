@@ -1,0 +1,29 @@
+@startuml usuario
+
+left to right direction
+
+title Gestión de Usuarios
+
+actor Administrador as Admin
+actor Usuario as User
+
+package Sistema {
+
+    USECASE "Registrar Usuario" as UC_Registrar
+    USECASE "Editar Usuario" as UC_Editar
+    USECASE "Eliminar Usuario" as UC_Eliminar
+    USECASE "Consultar Usuario" as UC_Consultar
+    USECASE "Iniciar Sesión" as UC_IniciarSesion
+    USECASE "Cerrar Sesión" as UC_CerrarSesion
+
+}
+
+Admin --> UC_Registrar
+Admin --> UC_Editar
+Admin --> UC_Eliminar
+Admin --> UC_Consultar
+User --> UC_IniciarSesion
+User --> UC_CerrarSesion
+User --> UC_Consultar
+
+@enduml

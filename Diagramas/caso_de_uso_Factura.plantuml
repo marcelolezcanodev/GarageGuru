@@ -1,0 +1,21 @@
+@startuml usuario
+
+left to right direction
+
+title Gestión de Facturas
+
+actor Usuario as User
+
+package Sistema {
+
+    USECASE "Registrar Facturas" as UC_Registrar
+    USECASE "Actualizar Facturas" as UC_Editar
+    USECASE "Consultar Facturas" as UC_Consultar
+
+}
+
+User --> UC_Registrar
+User --> UC_Editar
+User --> UC_Consultar
+
+@enduml
