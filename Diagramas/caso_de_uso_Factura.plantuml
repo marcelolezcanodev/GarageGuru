@@ -8,7 +8,7 @@ actor Usuario as User
 
 package Sistema {
 
-    USECASE "Registrar Facturas" as UC_Registrar
+    USECASE "Generar Facturas" as UC_Generar
     USECASE "Actualizar Facturas" as UC_Editar
     USECASE "Consultar Facturas" as UC_Consultar
 

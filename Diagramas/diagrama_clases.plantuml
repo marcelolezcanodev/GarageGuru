@@ -75,6 +75,7 @@ class OrdenTrabajo {
     -tecnico: Tecnico
     -estado: String
     -descripcion: String
+    -presupuesto: Presupesto
     -ordenTrabajodetalle:List<OrdenTrabajoDetalle>
     +crear()
     +modificar()
@@ -192,64 +193,12 @@ class Articulo {
     +merma()
 }
 
-' Gestión de feedback del cliente
-/'class Feedback {
-    -id: int
-    -cliente: Cliente
-    -comentario: String
-    -calificacion: int
-    -fechaHora: Datetime
-    +gestionar()
-}'/
-
-/'class Encuesta {
-    -id: int
-    -preguntas: List<String>
-    -respuestas: List<String>
-    +enviar()
-}'/
-
-' Cumplimiento de normativas
-/'class Normativa {
-    +id: int
-    +descripcion: String
-    +documentar()
-}'/
-
-/'class Residuo {
-    +id: int
-    +tipo: String
-    +cantidad: double
-    +gestionar()
-}'/
-
-' Dashboards y reportes
-/'class Dashboard {
-    -widgets: List<Widget>
-    +visualizar()
-}'/
-
 class Reporte {
     -id: int
     -titulo: String
     -contenido: String
     +generar()
 }
-
-' Seguimiento de calidad de servicio
-/'class ControlCalidad {
-    +id: int
-    +inspecciones: List<Inspeccion>
-    +registrar()
-}'/
-
-/'class Inspeccion {
-    -id: int
-    -fecha: Date
-    -detalles: String
-    -ordenTrabajo: OrdenTrabajo
-    +consultar()
-}'/
 
 class Presupuesto{
     -id:int
@@ -349,22 +298,18 @@ Usuario  --  Cliente: gestiona
 Usuario "1" -- "1..*" Cita: programa
 Usuario "1" -- "1..*" Factura: gestiona
 Usuario  --  Presupuesto: gestiona
-'Cliente "1" -- "1..*" Feedback: proporciona
-'Cliente "1" -- "1..*" OrdenTrabajo: solicita
 Cliente "1" -- "1..*" Vehiculo: tiene
 Vehiculo "1" -- "1..*" Cita: tiene
 OrdenTrabajo "1" -- "1..*" Tecnico: asigna
 OrdenTrabajo "1" -- "0..1" Factura: tiene
+OrdenTrabajo "0..1" -- "1" Presupuesto: tiene
+Factura "0..1" -- "0..1" Presupuesto: tiene
 Factura "1" -- "1" Talonario: usa
 Factura "1" -- "1..*" ItemFactura: contiene
 ItemFactura "1..*" -- "1" Articulo: contiene
 ItemFactura "1" -- "1" Iva: contiene
 Cita "1" -- "1" OrdenTrabajo: crea
 Inventario "1" -- "1..*" ItemInventario: contiene
-'Residuo "1" -- "1" Normativa: cumple
-'Dashboard "1" -- "0..*" Reporte: genera
-'ControlCalidad "1" -- "0..*" Inspeccion: registra
-'Inspeccion "1" -- "1" OrdenTrabajo
 Articulo "1" -- "1" ArticuloStock: contiene
 Presupuesto "1" -- "1..*" PresupuestoDetalle: contiene
 PresupuestoDetalle "1..*" -- "1" Articulo: contiene
@@ -379,14 +324,3 @@ Recibo "1" -- "1..*" Cobro: tiene
 Administrador "1" -- "0..*" Reporte: Gestiona
 Administrador "1" -- "0..*" Egresos: Gestiona
 @enduml
-
-/' Estuve modificando algunas cosas:
-Creo que podriamos dejar de usar las siguientes clases, decime que opinas
-- Agenda -> manejarnos solo con citas 
-- Normativas -> creo que eso escapa ya al sistema en si
-- ControlCalidad -> Basteria creo, con tener un campo "aceptadoCliente" en ördenTrabajo" capaz
-- Residuos -> esta clase no me queda muy claro su funcion
-
-Aparte agregar las clases de:
-- Vehiculo -> Su relacion
-- y alguna otra mas que tengas en mente'/
