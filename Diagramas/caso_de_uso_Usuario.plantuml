@@ -10,8 +10,7 @@ actor Usuario as User
 package Sistema {
 
     USECASE "Registrar Usuario" as UC_Registrar
-    USECASE "Editar Usuario" as UC_Editar
-    USECASE "Eliminar Usuario" as UC_Eliminar
+    USECASE "Editar Usuario" as UC_Actualizar
     USECASE "Consultar Usuario" as UC_Consultar
     USECASE "Iniciar Sesión" as UC_IniciarSesion
     USECASE "Cerrar Sesión" as UC_CerrarSesion
@@ -19,8 +18,7 @@ package Sistema {
 }
 
 Admin --> UC_Registrar
-Admin --> UC_Editar
-Admin --> UC_Eliminar
+Admin --> UC_Actualizar
 Admin --> UC_Consultar
 User --> UC_IniciarSesion
 User --> UC_CerrarSesion

@@ -1,0 +1,21 @@
+@startuml usuario
+
+left to right direction
+
+title Gestión de Vehiculos
+
+actor Usuario as User
+
+package Sistema {
+
+    USECASE "Registrar Vehiculos" as UC_Registrar
+    USECASE "Editar Vehiculos" as UC_Editar
+    USECASE "Consultar Vehiculos" as UC_Consultar
+
+}
+
+User --> UC_Registrar
+User --> UC_Editar
+User --> UC_Consultar
+
+@enduml
