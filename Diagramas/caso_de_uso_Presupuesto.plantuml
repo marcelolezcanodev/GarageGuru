@@ -1,0 +1,23 @@
+@startuml usuario
+
+left to right direction
+
+title Gestión de Presupuestos
+
+actor Usuario as User
+
+package Sistema {
+
+    USECASE "Crear Presupuestos" as UC_Registrar
+    USECASE "Editar Presupuestos" as UC_Editar
+    USECASE "Consultar Presupuestos" as UC_Consultar
+    USECASE "Actualizar Estado" as UC_Editar_Estado
+
+}
+
+User --> UC_Registrar
+User --> UC_Editar
+User --> UC_Consultar
+UC_Editar ..> UC_Editar_Estado
+
+@enduml

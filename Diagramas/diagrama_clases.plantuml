@@ -226,6 +226,7 @@ class PresupuestoDetalle{
 class Egresos{
     -id:int
     -periodo:Datetime
+    -referencia: String
     -total:double
     +crear()
     +consultar()
@@ -266,6 +267,7 @@ class Recibo {
     -fecha: Date
     -cliente: Cliente
     -total: double
+    -estado: String
     -cobro: List<Cobro>
     -detalleRecibo: List<DetalleRecibo>
     +crear()
