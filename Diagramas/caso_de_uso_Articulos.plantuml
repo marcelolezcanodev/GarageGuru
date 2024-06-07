@@ -1,0 +1,24 @@
+@startuml articulos
+
+left to right direction
+
+title Gestión de Articulos
+
+actor Usuario as User
+
+package Sistema {
+
+    USECASE "Generar Articulos" as UC_Generar
+    USECASE "Actualizar Articulos" as UC_Editar
+    USECASE "Consultar Articulos" as UC_Consultar
+    USECASE "Actualizar Estado" as UCE_Actualizar
+
+    UC_Editar ..> UCE_Actualizar
+
+}
+
+User --> UC_Generar
+User --> UC_Editar
+User --> UC_Consultar
+
+@enduml

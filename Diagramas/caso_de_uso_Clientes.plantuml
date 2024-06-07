@@ -10,14 +10,12 @@ package Sistema {
 
     USECASE "Registrar Clientes" as UC_Registrar
     USECASE "Editar Clientes" as UC_Editar
-    USECASE "Eliminar Clientes" as UC_Eliminar
     USECASE "Consultar Clientes" as UC_Consultar
 
 }
 
 User --> UC_Registrar
 User --> UC_Editar
-User --> UC_Eliminar
 User --> UC_Consultar
 
 @enduml

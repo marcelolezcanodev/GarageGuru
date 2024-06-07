@@ -10,14 +10,12 @@ package Sistema {
 
     USECASE "Registrar Proveedores" as UC_Registrar
     USECASE "Editar Proveedores" as UC_Editar
-    USECASE "Eliminar Proveedores" as UC_Eliminar
     USECASE "Consultar Proveedores" as UC_Consultar
 
 }
 
 User --> UC_Registrar
 User --> UC_Editar
-User --> UC_Eliminar
 User --> UC_Consultar
 
 @enduml

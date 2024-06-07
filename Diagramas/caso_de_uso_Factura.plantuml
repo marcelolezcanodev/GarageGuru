@@ -11,10 +11,13 @@ package Sistema {
     USECASE "Generar Facturas" as UC_Generar
     USECASE "Actualizar Facturas" as UC_Editar
     USECASE "Consultar Facturas" as UC_Consultar
+    USECASE "Actualizar Estado" as USE_Actualizar
+
+    UC_Editar ..> USE_Actualizar
 
 }
 
-User --> UC_Registrar
+User --> UC_Generar
 User --> UC_Editar
 User --> UC_Consultar
 
