@@ -1,0 +1,40 @@
+@startuml
+actor Administrador
+boundary Sistema
+
+Administrador -> Sistema : Accede al módulo de gestión de Usuario
+Sistema -> Administrador : Despliega vista paginada de usuarios y opciones
+
+alt Registrar
+    Administrador -> Sistema : Selecciona "Registrar"
+    Sistema -> Administrador : Despliega formulario de registro de usuario
+    Administrador -> Sistema : Completa formulario y selecciona "Guardar"
+    Sistema -> Sistema : Valida campos obligatorios
+    Sistema -> Sistema : Verifica duplicidad de usuarios
+    alt Usuario duplicado
+        Sistema -> Administrador : Alerta de usuario duplicado
+        Administrador -> Sistema : Cancela o modifica datos
+        opt Cancelar
+            Sistema -> Administrador : Retorna a vista general de usuarios
+        end
+    else
+        Sistema -> Sistema : Registra usuario en base de datos
+        Sistema -> Administrador : Confirma registro exitoso
+    end
+end
+
+alt Actualizar
+    Administrador -> Sistema : Selecciona "Actualizar"
+    Sistema -> Administrador : Despliega formulario de actualización
+    Administrador -> Sistema : Modifica campos y selecciona "Actualizar"
+    Sistema -> Sistema : Valida campos obligatorios
+    Sistema -> Sistema : Actualiza registro en base de datos
+    Sistema -> Administrador : Confirma actualización exitosa
+end
+
+alt Baja
+    Administrador -> Sistema : Selecciona "Baja"
+    Sistema -> Sistema : Actualiza estado de usuario a "inactivo"
+    Sistema -> Administrador : Confirma baja exitosa
+end
+@enduml
