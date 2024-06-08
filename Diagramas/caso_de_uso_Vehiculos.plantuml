@@ -11,9 +11,6 @@ package Sistema {
     USECASE "Registrar Vehiculos" as UC_Registrar
     USECASE "Editar Vehiculos" as UC_Editar
     USECASE "Consultar Vehiculos" as UC_Consultar
-    USECASE "Actualizar Estado" as UC_Actualizar_Estado
-
-    UC_Editar ..> UC_Actualizar_Estado
 
 }
 

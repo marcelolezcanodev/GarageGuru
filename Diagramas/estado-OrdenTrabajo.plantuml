@@ -1,0 +1,11 @@
+@startuml
+[*] --> Generado : Registro completado
+Generado --> Asignado : Asignado a Responsable
+Asignado --> Cancelado: Cancelado a Pedido de cliente
+Asignado --> Atendido : Responsable Atiende
+Atendido --> Pausado: Pausado por Responsable
+Pausado --> Atendido: Reanudado por responsable
+Atendido --> Terminado: OT terminada
+Cancelado --> [*]
+Terminado -->[*]
+@enduml
