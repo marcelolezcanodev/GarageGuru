@@ -1,0 +1,6 @@
+@startuml
+[*] --> Registrado : Registro completado
+Registrado --> Activo : Activar cuenta
+Activo --> Inactivo : Desactivar cuenta
+Inactivo --> [*]
+@enduml

@@ -1,0 +1,19 @@
+@startuml
+actor Usuario
+participant "Frontend" as FE
+participant "Backend" as BE
+participant "Base de Datos" as DB
+
+Usuario -> FE: Iniciar sesión
+FE -> BE: Solicitud de inicio de sesión (credenciales)
+BE -> DB: Verificar credenciales
+DB --> BE: Credenciales válidas/Inválidas
+alt Credenciales válidas
+    BE -> BE: Generar JWT
+    BE --> FE: JWT
+    FE --> Usuario: Inicio de sesión exitoso (JWT)
+else Credenciales inválidas
+    BE --> FE: Error de autenticación
+    FE --> Usuario: Inicio de sesión fallido
+end
+@enduml

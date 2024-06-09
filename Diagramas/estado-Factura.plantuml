@@ -1,0 +1,8 @@
+@startuml
+[*] --> Generado : Registro completado
+Generado --> Pendiente : Pendiende de cobro
+Pendiente --> Parcial : Cobro parcial
+Pendiente --> Cobrado: FC cobrada
+Parcial --> Cobrado: FCR cobrada
+Cobrado -->[*]
+@enduml

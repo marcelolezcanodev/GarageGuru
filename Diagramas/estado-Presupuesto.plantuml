@@ -1,0 +1,11 @@
+@startuml
+[*] --> Generado : Registro completado
+Generado --> Emitido : Enviado a cliente
+Emitido --> Aprobado : aprobado por cliente
+Aprobado --> Facturado: Presupuesto facturado
+Emitido --> Rechazado: rechazado por cliente
+Emitido --> Vencido: periodo de vigencia terminado
+Facturado -->[*]
+Rechazado --> [*]
+Vencido -->[*]
+@enduml
