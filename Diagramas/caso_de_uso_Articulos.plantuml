@@ -8,7 +8,7 @@ actor Usuario as User
 
 package Sistema {
 
-    USECASE "Generar Articulos" as UC_Generar
+    USECASE "Crear Articulos" as UC_Generar
     USECASE "Actualizar Articulos" as UC_Editar
     USECASE "Consultar Articulos" as UC_Consultar
     USECASE "Actualizar Estado" as UCE_Actualizar
