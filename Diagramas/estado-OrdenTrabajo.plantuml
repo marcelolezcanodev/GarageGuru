@@ -1,4 +1,4 @@
-@startuml
+@startuml estado-OT
 [*] --> Generado : Registro completado
 Generado --> Asignado : Asignado a Responsable
 Asignado --> Cancelado: Cancelado a Pedido de cliente

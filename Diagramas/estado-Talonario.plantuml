@@ -1,0 +1,6 @@
+@startuml estado-Talonario
+[*] --> Registrado : Registro completado
+Registrado --> Activo : Habilitar talonario
+Activo --> Inactivo : Deshabilitar talonario
+Inactivo --> [*]
+@enduml
