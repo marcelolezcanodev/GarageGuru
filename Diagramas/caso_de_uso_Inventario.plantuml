@@ -12,6 +12,7 @@ package Sistema {
     USECASE "Editar Inventario" as UC_Editar
     USECASE "Consultar Inventario" as UC_Consultar
     USECASE "Eliminar Inventario" as UC_Eliminar
+    USECASE "Confirmar Inventario" as UC_Confirmar
 
 }
 
@@ -19,5 +20,6 @@ User --> UC_Registrar
 User --> UC_Editar
 User --> UC_Consultar
 User --> UC_Eliminar
+UC_Editar ..> UC_Confirmar
 
 @enduml
