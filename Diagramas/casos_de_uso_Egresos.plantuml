@@ -1,10 +1,10 @@
-@startuml usuario
+@startuml caso_de_uso_egresos
 
 left to right direction
 
 title Gestión de Egresos
 
-actor Usuario as User
+actor Empleado as User
 
 package Sistema {
 

@@ -1,10 +1,10 @@
-@startuml usuario
+@startuml caso_de_uso_presupuesto
 
 left to right direction
 
 title Gestión de Presupuestos
 
-actor Usuario as User
+actor Empleado as User
 
 package Sistema {
 
