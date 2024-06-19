@@ -1,0 +1,48 @@
+@startuml
+actor Usuario
+boundary Sistema
+
+Usuario -> Sistema : Accede al módulo de gestión de Facturas
+Sistema -> Usuario : Despliega vista paginada de Facturas y sus opciones
+
+alt Cobrar (para realizar cobro de importe total de factura)
+    Usuario -> Sistema : Selecciona cobrar
+    Sistema -> Usuario : Despliega ventana de confirmacion de opracion;
+    Usuario -> Sistema : Confirma Operacion
+    Sistema -> Usuario : Confirma transacion exitosa;
+    alt rechazo de operacion
+        Usuario -> Sistema : Cancelar operacion
+        opt Cancelar
+            Sistema -> Usuario : Retorna a vista general de Factura
+        end
+    end
+end
+
+alt Parcial (opcion disponible, solo para Facturas tipo credito)
+    Usuario -> Sistema : Selecciona "Parcial"
+    Sistema -> Usuario : Despliega ventana de emision de Recibos
+    Usuario -> Sistema : completa campos obligatorios del formulario
+    Usuario -> Sistema : Confirma Operacion
+    Sistema -> Sistema : Valida campos obligatorios
+    Sistema -> Usuario : Confirma transacion exitosa;
+    alt cancelar emision de recibo
+        Usuario -> Sistema : Cancelar operacion
+        opt Cancelar
+            Sistema -> Usuario : Retorna a vista general de Factura
+        end
+    end
+end
+
+alt Cancelar (opcion disponible, solo para Facturas en estado diferentes de CobroParcial y Cobrado)
+    Usuario -> Sistema : Selecciona "cancelar"
+    Sistema -> Usuario : Despliegua vista de solicitud de confirmacion de operacion
+    Usuario -> Sistema : Confirma Operacion
+    Sistema -> Usuario : Confirma transacion exitosa
+    alt rechazo de operacion
+        Usuario -> Sistema : Cancela operacion
+        opt Cancelar
+            Sistema -> Usuario : Retorna a vista general de Factura
+        end
+    end
+end
+@enduml

@@ -1,0 +1,73 @@
+@startuml
+actor Usuario
+boundary Sistema
+
+Usuario -> Sistema : Accede al módulo de gestión de Ordenes de Trabajo
+Sistema -> Usuario : Despliega vista paginada de OT y opciones
+
+alt Registrar
+    Usuario -> Sistema : Selecciona "Registrar"
+    Sistema -> Usuario : Despliega formulario de registro de OT
+    Usuario -> Sistema : Completa formulario y selecciona "Guardar"
+    Sistema -> Sistema : Valida campos obligatorios
+    Sistema -> Sistema : Verifica duplicidad de OT
+    alt OT duplicado
+        Sistema -> Usuario : Alerta de OT duplicada
+        Usuario -> Sistema : Cancela o modifica datos
+        opt Cancelar
+            Sistema -> Usuario : Retorna a vista general de OT
+        end
+    else
+        Sistema -> Sistema : Registra OT en base de datos
+        Sistema -> Usuario : Confirma registro exitoso
+    end
+end
+
+alt Actualizar
+    Usuario -> Sistema : Selecciona "Actualizar"
+    Sistema -> Usuario : Despliega formulario de actualización
+    Usuario -> Sistema : Modifica campos y selecciona "Actualizar"
+    Sistema -> Sistema : Valida campos obligatorios
+    Sistema -> Sistema : Actualiza registro en base de datos
+    Sistema -> Usuario : Confirma actualización exitosa
+end
+
+alt Asignar
+    Usuario -> Sistema : Selecciona "Asignar"
+    Sistema -> Usuario : Despliega formulario para asignacion de Tecnico
+    Usuario -> Sistema : Selecciona Tecnico disponible
+    Usuario -> Sistema : Confirma transaccion
+    Sistema -> Sistema : Actualiza registro en base de datos
+    Sistema -> Usuario : Confirma asignacion exitosa
+end
+
+alt Facturar (opcion disponible, solo para OT en estado Terminado)
+    Usuario -> Sistema : Selecciona "Facturar"
+    Sistema -> Usuario : Despliegua vista de Facturacion, con los items cargados en la OT y nombre del cliente
+    Usuario -> Sistema : Selecciona tipo de factura;
+    Usuario -> Sistema : Seleciona "confirmar"
+    Sistema -> Sistema : registra factura en base de datos
+    Sistema -> Sistema : actualiza estado de OT
+    Sistema -> Usuario : Confirma transacion exitosa
+    alt cancela emision de factura
+        Usuario -> Sistema : Cancela operacion
+        opt Cancelar
+            Sistema -> Usuario : Retorna a vista general de OT
+            Sistema -> Sistema : estado de OT no modificada
+        end
+    end
+end
+
+alt Cancelar (opcion disponible, solo para OT en estado Generado o Asignado)
+    Usuario -> Sistema : Selecciona "cancelar"
+    Sistema -> Usuario : Despliegua vista de solicitud de confirmacion de operacion
+    Usuario -> Sistema : Confirma Operacion
+    Sistema -> Usuario : Confirma transacion exitosa
+    alt rechazo de operacion
+        Usuario -> Sistema : Cancela operacion
+        opt Cancelar
+            Sistema -> Usuario : Retorna a vista general de OT
+        end
+    end
+end
+@enduml

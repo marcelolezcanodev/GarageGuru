@@ -1,11 +1,13 @@
 @startuml estado-OT
 [*] --> Generado : Registro completado
 Generado --> Asignado : Asignado a Responsable
+Generado --> Cancelado: OT cancelado por usuario
 Asignado --> Cancelado: Cancelado a Pedido de cliente
 Asignado --> Atendido : Responsable Atiende
 Atendido --> Pausado: Pausado por Responsable
 Pausado --> Atendido: Reanudado por responsable
-Atendido --> Terminado: OT terminada
+Atendido --> Finalizado: OT finalizada
+Finalizado --> Facturado: Factura generada desde OT
+Facturado --> [*]
 Cancelado --> [*]
-Terminado -->[*]
 @enduml
