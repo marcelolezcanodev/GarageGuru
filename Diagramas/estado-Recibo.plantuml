@@ -1,0 +1,8 @@
+@startuml estado-Recibo
+[*] --> Generado : Registro completado
+Generado --> Pendiente : Pendiende de cobro
+Pendiente --> Anulado : Recibo anulado
+Pendiente --> Cobrado: Recibo cobrado
+Cobrado -->[*]
+Anulado -->[*]
+@enduml

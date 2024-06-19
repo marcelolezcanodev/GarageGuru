@@ -1,0 +1,23 @@
+@startuml usuario
+
+left to right direction
+
+title Gestión de Cobros
+
+actor Usuario as User
+
+package Sistema {
+
+    USECASE "Registrar Cobros" as UC_Registrar
+    USECASE "Editar Cobros" as UC_Editar
+    USECASE "Consultar Cobros" as UC_Consultar
+    USECASE "Eliminar Cobros" as UC_Eliminar
+
+}
+
+User --> UC_Registrar
+User --> UC_Editar
+User --> UC_Consultar
+User --> UC_Eliminar
+
+@enduml

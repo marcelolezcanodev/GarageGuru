@@ -1,8 +1,10 @@
-@startuml
+@startuml estado-Factura
 [*] --> Generado : Registro completado
 Generado --> Pendiente : Pendiende de cobro
 Pendiente --> Parcial : Cobro parcial
-Pendiente --> Cobrado: FC cobrada
-Parcial --> Cobrado: FCR cobrada
+Pendiente --> Anulado : Anular Factura
+Pendiente --> Cobrado: Cobrar Factura
+Parcial --> Cobrado: Cobrar Factura
 Cobrado -->[*]
+Anulado -->[*]
 @enduml

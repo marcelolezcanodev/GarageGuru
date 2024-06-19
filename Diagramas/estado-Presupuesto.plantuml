@@ -1,4 +1,4 @@
-@startuml
+@startuml estado-Presupuesto
 [*] --> Generado : Registro completado
 Generado --> Emitido : Enviado a cliente
 Emitido --> Aprobado : aprobado por cliente

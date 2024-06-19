@@ -1,0 +1,23 @@
+@startuml usuario
+
+left to right direction
+
+title Gestión de Categoria de Articulos
+
+actor Usuario as User
+
+package Sistema {
+
+    USECASE "Registrar Categoria" as UC_Registrar
+    USECASE "Editar Categoria" as UC_Editar
+    USECASE "Consultar Categoria" as UC_Consultar
+    USECASE "Eliminar Categoria" as UC_Eliminar
+
+}
+
+User --> UC_Registrar
+User --> UC_Editar
+User --> UC_Consultar
+User --> UC_Eliminar
+
+@enduml

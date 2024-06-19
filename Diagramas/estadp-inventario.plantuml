@@ -1,0 +1,6 @@
+@startuml estado-Inventario
+[*] --> Registrado : Registro completado
+Registrado --> Pendiente : Inventario a Confirmar
+Pendiente --> Confirmado : Confirmar Inventario
+Confirmado --> [*]
+@enduml
