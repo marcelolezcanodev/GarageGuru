@@ -1,0 +1,16 @@
+@startuml da_consultar_vehiculo
+Title Consultar Vehiculo
+|Empleado|
+start
+:Ingresar término de búsqueda;
+|Sistema|
+:Buscar vehiculo por término de búsqueda;
+:Mostrar resultados de búsqueda;
+|Empleado|
+:Seleccionar vehiculo para consultar;
+:Visualizar detalles del vehiculo;
+|Sistema|
+:Obtener información detallada del vehiculo;
+:Mostrar detalles del vehiculo;
+stop
+@enduml

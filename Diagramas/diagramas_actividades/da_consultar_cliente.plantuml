@@ -1,4 +1,5 @@
 @startuml da_consultar_cliente
+Title Consultar Cliente
 |Empleado|
 start
 :Ingresar término de búsqueda;

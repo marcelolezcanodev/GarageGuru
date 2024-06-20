@@ -1,12 +1,12 @@
-@startuml da_editar_cliente
-Title Editar Cliente
+@startuml da_editar_vehiculo
+Title Editar Vehiculo
 |Empleado|
 start
-:Seleccionar cliente a actualizar;
-:Ingresar nuevos datos del cliente;
+:Seleccionar vehiculo a actualizar;
+:Ingresar nuevos datos del vehiculo;
 |Sistema|
 if (Datos válidos?) is (Si) then
-:Guardar cliente en la base de datos;
+:Guardar vehiculo en la base de datos;
 |Empleado|
 :Mostrar confirmación de actualización;
 stop

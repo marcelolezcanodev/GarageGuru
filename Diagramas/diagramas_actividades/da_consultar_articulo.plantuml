@@ -1,0 +1,16 @@
+@startuml da_consultar_Articulo
+Title Consultar Articulo
+|Empleado|
+start
+:Ingresar término de búsqueda;
+|Sistema|
+:Buscar Articulo por término de búsqueda;
+:Mostrar resultados de búsqueda;
+|Empleado|
+:Seleccionar Articulo para consultar;
+:Visualizar detalles del Articulo;
+|Sistema|
+:Obtener información detallada del Articulo;
+:Mostrar detalles del Articulo;
+stop
+@enduml

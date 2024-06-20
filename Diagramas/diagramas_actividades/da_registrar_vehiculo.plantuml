@@ -1,4 +1,5 @@
 @startuml da_registrar_vehiculo
+Title Registrar Vehiculo
 |Empleado|
 start
 :Ingresar datos del vehiculo;
@@ -7,8 +8,10 @@ start
 
 if (Datos válidos?) is (Si) then
 :Guardar vehiculo en la base de datos;
+|Empleado|
 :Mostrar confirmación de registro;
 stop
 else (No)
+|Empleado|
 :Mostrar mensaje de error;
 stop
