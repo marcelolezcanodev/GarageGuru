@@ -1,0 +1,18 @@
+@startuml da_registrar_cliente
+|Empleado|
+start
+:Ingresar datos del cliente;
+|Sistema|
+:Validar datos;
+
+if (Datos válidos?) is (Si) then
+:Guardar cliente en la base de datos;
+|Empleado|
+:Mostrar confirmación de registro;
+stop
+else (No)
+|Empleado|
+:Mostrar mensaje de error;
+stop
+
+@enduml

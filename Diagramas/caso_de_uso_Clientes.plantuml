@@ -1,10 +1,10 @@
-@startuml cliente
+@startuml CU_Cliente
 
 left to right direction
 
 title Gestión de Clientes
 
-actor Usuario as User
+actor Empleado as User
 
 package Sistema {
 

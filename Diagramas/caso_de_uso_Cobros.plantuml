@@ -1,10 +1,10 @@
-@startuml usuario
+@startuml CU_Cobros
 
 left to right direction
 
 title Gestión de Cobros
 
-actor Usuario as User
+actor Empleado as User
 
 package Sistema {
 

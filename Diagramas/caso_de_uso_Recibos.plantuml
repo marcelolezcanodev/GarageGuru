@@ -1,10 +1,10 @@
-@startuml usuario
+@startuml CU_Recibo
 
 left to right direction
 
 title Gestión de Recibos de Cobranza
 
-actor Usuario as User
+actor Empleado as User
 
 package Sistema {
 

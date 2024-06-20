@@ -1,10 +1,10 @@
-@startuml factura
+@startuml CU_Factura
 
 left to right direction
 
 title Gestión de Facturas
 
-actor Usuario as User
+actor Empleado as User
 
 package Sistema {
 

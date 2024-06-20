@@ -1,11 +1,10 @@
-@startuml usuario
+@startuml CU_Usuario
 
 left to right direction
 
 title Gestión de Usuarios
 
-actor Administrador as Admin
-actor Usuario as User
+actor Empleado as User
 
 package Sistema {
 
@@ -17,9 +16,9 @@ package Sistema {
 
 }
 
-Admin --> UC_Registrar
-Admin --> UC_Actualizar
-Admin --> UC_Consultar
+User --> UC_Registrar
+User --> UC_Actualizar
+User --> UC_Consultar
 User --> UC_IniciarSesion
 User --> UC_CerrarSesion
 User --> UC_Consultar

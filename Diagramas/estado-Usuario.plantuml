@@ -1,4 +1,4 @@
-@startuml
+@startuml estado_usuario
 [*] --> Registrado : Registro completado
 Registrado --> Activo : Activar cuenta
 Activo --> Inactivo : Desactivar cuenta

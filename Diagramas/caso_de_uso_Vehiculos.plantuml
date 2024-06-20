@@ -1,10 +1,10 @@
-@startuml vehiculos
+@startuml CU_vehiculos
 
 left to right direction
 
 title Gestión de Vehiculos
 
-actor Usuario as User
+actor Empleado as User
 
 package Sistema {
 

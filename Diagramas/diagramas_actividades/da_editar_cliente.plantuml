@@ -1,0 +1,16 @@
+@startuml da_editar_cliente
+|Empleado|
+start
+:Seleccionar cliente a actualizar;
+:Ingresar nuevos datos del cliente;
+|Sistema|
+if (Datos válidos?) is (Si) then
+:Guardar cliente en la base de datos;
+|Empleado|
+:Mostrar confirmación de registro;
+stop
+else (No)
+|Empleado|
+:Mostrar mensaje de error;
+stop
+@enduml

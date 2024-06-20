@@ -1,10 +1,10 @@
-@startuml proveedores
+@startuml CU_proveedores
 
 left to right direction
 
 title Gestión de Proveedores
 
-actor Usuario as User
+actor Empleado as User
 
 package Sistema {
 

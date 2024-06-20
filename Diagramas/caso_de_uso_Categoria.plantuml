@@ -1,10 +1,10 @@
-@startuml usuario
+@startuml CU_Categoria
 
 left to right direction
 
 title Gestión de Categoria de Articulos
 
-actor Usuario as User
+actor Empleado as User
 
 package Sistema {
 

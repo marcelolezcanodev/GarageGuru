@@ -1,10 +1,10 @@
-@startuml citas
+@startuml CU_citas
 
 left to right direction
 
 title Gestión de Citas
 
-actor Usuario as User
+actor Empleado as User
 
 package Sistema {
 

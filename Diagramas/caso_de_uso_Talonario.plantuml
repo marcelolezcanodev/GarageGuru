@@ -1,10 +1,10 @@
-@startuml usuario
+@startuml CU_Talonario
 
 left to right direction
 
 title Gestión de Talonarios
 
-actor Usuario as User
+actor Empleado as User
 
 package Sistema {
 

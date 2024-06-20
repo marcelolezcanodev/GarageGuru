@@ -1,4 +1,4 @@
-@startuml usuario
+@startuml CU_Inventario
 
 left to right direction
 

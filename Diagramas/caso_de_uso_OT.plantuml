@@ -1,10 +1,10 @@
-@startuml usuario
+@startuml CU_OT
 
 left to right direction
 
 title Gestión de Ordenes de Trabajo
 
-actor Usuario as User
+actor Empleado as User
 
 package Sistema {
 

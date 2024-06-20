@@ -1,0 +1,15 @@
+@startuml da_consultar_cliente
+|Empleado|
+start
+:Ingresar término de búsqueda;
+|Sistema|
+:Buscar cliente por término de búsqueda;
+:Mostrar resultados de búsqueda;
+|Empleado|
+:Seleccionar cliente para consultar;
+:Visualizar detalles del cliente;
+|Sistema|
+:Obtener información detallada del cliente;
+:Mostrar detalles del cliente;
+stop
+@enduml
