@@ -1,0 +1,24 @@
+@startuml da_Eliminar_Inventario
+Title Eliminar Inventario
+|Empleado|
+start
+:Seleccionar inventario a eliminar;
+|Sistema|
+:Solicitar confirmación para eliminar;
+if (Confirmación recibida?) then (Sí)
+    :Validar que el inventario no esté en uso;
+    if (Inventario en uso?) then (Sí)
+        |Empleado|
+        :Mostrar mensaje de error;
+        stop
+    else (No)
+        :Eliminar inventario en la base de datos;
+        |Empleado|
+        :Mostrar confirmación de eliminación;
+        stop
+    endif
+else (No)
+    :Cancelar eliminación;
+    stop
+endif
+@enduml

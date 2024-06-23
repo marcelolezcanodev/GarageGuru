@@ -1,0 +1,14 @@
+@startuml da_Consultar_Inventario
+Title Consultar Inventario
+|Empleado|
+start
+:Ingresar criterios de búsqueda;
+|Sistema|
+:Buscar inventarios que coincidan con los criterios;
+:Mostrar resultados de búsqueda;
+|Empleado|
+:Seleccionar inventario para ver detalles;
+|Sistema|
+:Mostrar detalles del inventario;
+stop
+@enduml

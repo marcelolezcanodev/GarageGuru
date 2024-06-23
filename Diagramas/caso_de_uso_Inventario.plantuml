@@ -4,7 +4,7 @@ left to right direction
 
 title Gestión de Inventarios
 
-actor Usuario as User
+actor Empleado as User
 
 package Sistema {
 

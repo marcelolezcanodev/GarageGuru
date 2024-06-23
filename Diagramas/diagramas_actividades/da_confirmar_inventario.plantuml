@@ -1,0 +1,16 @@
+@startuml da_Confirmar_Inventario
+Title Confirmar Inventario
+|Empleado|
+start
+:Seleccionar inventario a confirmar;
+|Sistema|
+:Mostrar detalles del inventario;
+|Empleado|
+:Revisar y confirmar inventario;
+|Sistema|
+:Actualizar estado del inventario a confirmado;
+:Guardar cambios en la base de datos;
+|Empleado|
+:Mostrar confirmación de inventario;
+stop
+@enduml

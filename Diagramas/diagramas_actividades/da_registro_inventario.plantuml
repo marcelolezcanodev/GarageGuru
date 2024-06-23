@@ -1,0 +1,19 @@
+@startuml da_Registrar_Inventario
+Title Registrar Inventario
+|Empleado|
+start
+:Ingresar detalles del inventario;
+:Seleccionar artículos;
+|Sistema|
+:Validar detalles del inventario;
+if (Detalles válidos?) then (Sí)
+    :Guardar inventario en la base de datos;
+    |Empleado|
+    :Mostrar confirmación de registro;
+    stop
+else (No)
+    |Empleado|
+    :Mostrar mensaje de error;
+    stop
+endif
+@enduml

@@ -1,0 +1,22 @@
+@startuml da_Editar_Orden_Trabajo
+Title Editar Orden de Trabajo
+|Empleado|
+start
+:Seleccionar orden de trabajo a editar;
+|Sistema|
+:Mostrar detalles de la orden;
+|Empleado|
+:Modificar detalles de la orden;
+|Sistema|
+:Validar nuevos detalles de la orden;
+if (Detalles válidos?) then (Sí)
+    :Guardar cambios en la base de datos;
+    |Empleado|
+    :Mostrar confirmación de edición;
+    stop
+else (No)
+    |Empleado|
+    :Mostrar mensaje de error;
+    stop
+endif
+@enduml

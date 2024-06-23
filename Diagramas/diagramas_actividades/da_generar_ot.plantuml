@@ -1,0 +1,21 @@
+@startuml da_Generar_Orden_Trabajo
+Title Generar Orden de Trabajo
+|Empleado|
+start
+:Ingresar datos de la orden de trabajo;
+:Seleccionar vehículo;
+:Seleccionar técnico;
+:Ingresar detalles de la orden;
+|Sistema|
+:Validar datos de la orden;
+if (Datos válidos?) then (Sí)
+    :Guardar orden de trabajo en la base de datos;
+    |Empleado|
+    :Mostrar confirmación de generación;
+    stop
+else (No)
+    |Empleado|
+    :Mostrar mensaje de error;
+    stop
+endif
+@enduml

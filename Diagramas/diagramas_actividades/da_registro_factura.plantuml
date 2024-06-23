@@ -1,0 +1,21 @@
+@startuml da_Generar_Factura
+Title Generar Factura
+|Empleado|
+start
+:Ingresar detalles de la factura;
+:Seleccionar cliente;
+:Seleccionar items;
+|Sistema|
+:Validar datos de la factura;
+if (Datos válidos?) then (Sí)
+    :Calcular totales e IVA;
+    :Guardar factura en la base de datos;
+    |Empleado|
+    :Mostrar confirmación de generación;
+    stop
+else (No)
+    |Empleado|
+    :Mostrar mensaje de error;
+    stop
+endif
+@enduml

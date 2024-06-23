@@ -1,0 +1,14 @@
+@startuml da_Consultar_Orden_Trabajo
+Title Consultar Orden de Trabajo
+|Empleado|
+start
+:Ingresar criterios de búsqueda;
+|Sistema|
+:Buscar órdenes de trabajo que coincidan con los criterios;
+:Mostrar resultados de búsqueda;
+|Empleado|
+:Seleccionar orden de trabajo para ver detalles;
+|Sistema|
+:Mostrar detalles de la orden de trabajo;
+stop
+@enduml

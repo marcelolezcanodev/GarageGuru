@@ -1,0 +1,22 @@
+@startuml da_Editar_Inventario
+Title Editar Inventario
+|Empleado|
+start
+:Seleccionar inventario a editar;
+|Sistema|
+:Mostrar detalles del inventario;
+|Empleado|
+:Modificar detalles del inventario;
+|Sistema|
+:Validar nuevos detalles del inventario;
+if (Detalles válidos?) then (Sí)
+    :Guardar cambios en la base de datos;
+    |Empleado|
+    :Mostrar confirmación de edición;
+    stop
+else (No)
+    |Empleado|
+    :Mostrar mensaje de error;
+    stop
+endif
+@enduml

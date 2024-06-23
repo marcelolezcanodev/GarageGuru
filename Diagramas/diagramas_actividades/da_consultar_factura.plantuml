@@ -1,0 +1,14 @@
+@startuml da_Consultar_Factura
+Title Consultar Factura
+|Empleado|
+start
+:Ingresar criterios de búsqueda;
+|Sistema|
+:Buscar facturas que coincidan con los criterios;
+:Mostrar resultados de búsqueda;
+|Empleado|
+:Seleccionar factura para ver detalles;
+|Sistema|
+:Mostrar detalles de la factura;
+stop
+@enduml
