@@ -1,0 +1,17 @@
+@startuml da_registrar_IVA
+Title Registrar IVA
+|Empleado|
+start
+:Ingresar datos del IVA;
+|Sistema|
+:Validar datos;
+
+if (Datos válidos?) is (Si) then
+:Guardar IVA en la base de datos;
+|Empleado|
+:Mostrar confirmación de registro;
+stop
+else (No)
+|Empleado|
+:Mostrar mensaje de error;
+stop

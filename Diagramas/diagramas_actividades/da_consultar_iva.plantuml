@@ -1,0 +1,12 @@
+@startuml da_consultar_iva
+Title Consultar IVA
+|Empleado|
+start
+:Ingresar término de búsqueda;
+|Sistema|
+:Buscar IVA por término de búsqueda;
+:Mostrar resultados de búsqueda;
+|Empleado|
+:Visualizar datos del IVA;
+stop
+@enduml

@@ -1,0 +1,19 @@
+@startuml da_editar_IVA
+Title Editar IVA
+|Empleado|
+start
+:Seleccionar IVA a eliminar;
+|Sistema|
+:Verificar que el IVA no este en uso;
+if(Iva en uso?) is (Si) then
+    |Empleado|
+    :Mostrar mensaje de error;
+    stop
+else (No)
+    |Sistema|
+    :Eliminar el IVA en la base de datos;
+    |Empleado|
+    :Mostrar confirmación del borrado;
+    stop
+endif
+@enduml

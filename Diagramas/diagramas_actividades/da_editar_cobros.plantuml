@@ -1,0 +1,17 @@
+@startuml da_editar_Cobros
+Title Editar Cobros
+|Empleado|
+start
+:Seleccionar cobro a actualizar;
+:Ingresar nuevos datos del cobro;
+|Sistema|
+if (Datos válidos?) is (Si) then
+:Guardar cobro en la base de datos;
+|Empleado|
+:Mostrar confirmación de actualización;
+stop
+else (No)
+|Empleado|
+:Mostrar mensaje de error;
+stop
+@enduml

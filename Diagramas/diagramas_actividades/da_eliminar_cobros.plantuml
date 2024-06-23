@@ -1,0 +1,19 @@
+@startuml da_eliminar_cobro
+Title Eliminar Cobro
+|Empleado|
+start
+:Seleccionar el cobro para eliminar;
+|Sistema|
+:Solicitar confirmación para eliminar;
+if (Solicitud confirmada?) then (Si)
+    |Sistema|
+    :Eliminar el cobro en la base de datos;
+    |Empleado|
+    :Mostrar confirmación del borrado;
+    stop
+else (No)
+    |Sistema|
+    :Retornar a la vista paginada de comprobantes;
+    stop
+endif
+@enduml

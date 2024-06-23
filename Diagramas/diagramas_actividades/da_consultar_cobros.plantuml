@@ -1,0 +1,16 @@
+@startuml da_consultar_cobro
+Title Consultar Cobro
+|Empleado|
+start
+:Ingresar término de búsqueda;
+|Sistema|
+:Buscar cobro por término de búsqueda;
+:Mostrar resultados de búsqueda;
+|Empleado|
+:Seleccionar comprobante para consultar el cobro;
+:Visualizar detalles del cobro;
+|Sistema|
+:Obtener información detallada del cobro;
+:Mostrar detalles del cobro;
+stop
+@enduml

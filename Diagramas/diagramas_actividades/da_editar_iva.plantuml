@@ -1,0 +1,28 @@
+@startuml da_editar_IVA
+Title Editar IVA
+|Empleado|
+start
+:Seleccionar IVA a actualizar;
+|Sistema|
+:Verificar que el IVA no este en uso;
+if(Iva en uso?) is (Si) then
+    |Empleado|
+    :Mostrar mensaje de error;
+    stop
+else (No)
+    |Empleado|
+    :Ingresar nuevos datos del IVA;
+    |Sistema|
+    :Validar los datos ingresados;
+    if (Datos válidos?) is (Si) then
+        |Sistema|
+        :Guardar IVA en la base de datos;
+        |Empleado|
+        :Mostrar confirmación de actualización;
+        stop
+    else (No)
+        |Empleado|
+        :Mostrar mensaje de error;
+        stop
+endif
+@enduml

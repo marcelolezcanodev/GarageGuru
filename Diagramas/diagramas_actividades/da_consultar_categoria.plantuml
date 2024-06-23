@@ -7,10 +7,6 @@ start
 :Buscar Categoría de Artículos por término de búsqueda;
 :Mostrar resultados de búsqueda;
 |Empleado|
-:Seleccionar Categoría de Artículos para consultar;
-:Visualizar detalles de la Categoría de Artículos;
-|Sistema|
-:Obtener información detallada del Categoría de Artículos;
-:Mostrar detalles de la Categoría de Artículos;
+:Visualizar datos de la Categoría de Artículos;
 stop
 @enduml
