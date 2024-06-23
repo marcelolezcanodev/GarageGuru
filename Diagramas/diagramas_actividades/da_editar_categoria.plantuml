@@ -1,0 +1,17 @@
+@startuml da_editar_Categoria
+Title Editar Categoría de Artículos
+|Empleado|
+start
+:Seleccionar Categoría  de Artículos a actualizar;
+:Ingresar nuevos datos de la Categoría de Artículos;
+|Sistema|
+if (Datos válidos?) is (Si) then
+:Guardar Categoría de Artículos en la base de datos;
+|Empleado|
+:Mostrar confirmación de actualización;
+stop
+else (No)
+|Empleado|
+:Mostrar mensaje de error;
+stop
+@enduml

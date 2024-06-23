@@ -1,0 +1,26 @@
+@startuml da_Eliminar_Categoria
+Title Eliminar Categoría de Artículos
+|Empleado|
+start
+:Seleccionar la Categoría de Artículos para eliminar;
+|Sistema|
+:Solicitar confirmación para eliminar;
+if (Solicitud confirmada?) then (Si)
+    :Validar que la Categoría de Artículos no esté en uso;
+    if (Categoría en uso?) then (Si)
+        |Empleado|
+        :Mostrar mensaje de error;
+        stop
+    else (No)
+        |Sistema|
+        :Eliminar Categoría de Artículos en la base de datos;
+        |Empleado|
+        :Mostrar confirmación del borrado;
+        stop
+    endif
+else (No)
+    |Sistema|
+    :Retornar a la vista paginada de categorías;
+    stop
+endif
+@enduml

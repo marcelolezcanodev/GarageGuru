@@ -1,12 +1,12 @@
-@startuml da_editar_vehiculo
-Title Editar Vehiculo
+@startuml da_editar_articulo
+Title Editar articulo
 |Empleado|
 start
-:Seleccionar vehiculo a actualizar;
-:Ingresar nuevos datos del vehiculo;
+:Seleccionar articulo a actualizar;
+:Ingresar nuevos datos del articulo;
 |Sistema|
 if (Datos válidos?) is (Si) then
-:Guardar vehiculo en la base de datos;
+:Guardar articulo en la base de datos;
 |Empleado|
 :Mostrar confirmación de actualización;
 stop

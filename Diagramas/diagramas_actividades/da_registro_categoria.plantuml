@@ -1,0 +1,17 @@
+@startuml da_registrar_Categoria
+Title Registrar Categoría de Artículos
+|Empleado|
+start
+:Ingresar datos de la Categoría de Artículos;
+|Sistema|
+:Validar datos;
+
+if (Datos válidos?) is (Si) then
+:Guardar Categoría de Artículos en la base de datos;
+|Empleado|
+:Mostrar confirmación de registro;
+stop
+else (No)
+|Empleado|
+:Mostrar mensaje de error;
+stop
