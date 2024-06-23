@@ -1,0 +1,14 @@
+@startuml da_Consultar_Talonario
+Title Consultar Talonario
+|Empleado|
+start
+:Ingresar criterios de búsqueda;
+|Sistema|
+:Buscar talonarios que coincidan con los criterios;
+:Mostrar resultados de búsqueda;
+|Empleado|
+:Seleccionar talonario para ver detalles;
+|Sistema|
+:Mostrar detalles del talonario;
+stop
+@enduml

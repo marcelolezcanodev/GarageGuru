@@ -1,0 +1,10 @@
+@startuml da_Cerrar_Sesion
+Title Cerrar Sesión
+|Empleado|
+start
+:Seleccionar opción de cerrar sesión;
+|Sistema|
+:Cerrar sesión;
+:Mostrar pantalla de inicio de sesión;
+stop
+@enduml

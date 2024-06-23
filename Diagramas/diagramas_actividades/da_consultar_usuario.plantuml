@@ -1,0 +1,14 @@
+@startuml da_Consultar_Usuario
+Title Consultar Usuario
+|Empleado|
+start
+:Ingresar criterios de búsqueda;
+|Sistema|
+:Buscar usuarios que coincidan con los criterios;
+:Mostrar resultados de búsqueda;
+|Empleado|
+:Seleccionar usuario para ver detalles;
+|Sistema|
+:Mostrar detalles del usuario;
+stop
+@enduml

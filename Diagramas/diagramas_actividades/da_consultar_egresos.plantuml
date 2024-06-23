@@ -1,0 +1,14 @@
+@startuml da_Consultar_Egreso
+Title Consultar Egreso
+|Empleado|
+start
+:Ingresar criterios de búsqueda;
+|Sistema|
+:Buscar egresos que coincidan con los criterios;
+:Mostrar resultados de búsqueda;
+|Empleado|
+:Seleccionar egreso para ver detalles;
+|Sistema|
+:Mostrar detalles del egreso;
+stop
+@enduml

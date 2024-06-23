@@ -1,0 +1,22 @@
+@startuml da_Editar_Proveedor
+Title Editar Proveedor
+|Empleado|
+start
+:Seleccionar proveedor a editar;
+|Sistema|
+:Mostrar datos del proveedor;
+|Empleado|
+:Modificar datos del proveedor;
+|Sistema|
+:Validar nuevos datos del proveedor;
+if (Detalles válidos?) then (Sí)
+    :Guardar cambios en la base de datos;
+    |Empleado|
+    :Mostrar confirmación de edición;
+    stop
+else (No)
+    |Empleado|
+    :Mostrar mensaje de error;
+    stop
+endif
+@enduml

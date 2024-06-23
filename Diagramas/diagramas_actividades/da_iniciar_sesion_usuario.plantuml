@@ -1,0 +1,17 @@
+@startuml da_Iniciar_Sesion
+Title Iniciar Sesión
+|Empleado|
+start
+:Ingresar nombre de usuario y contraseña;
+|Sistema|
+:Validar credenciales;
+if (Credenciales válidas?) then (Sí)
+    :Iniciar sesión;
+    :Mostrar pantalla de inicio;
+    stop
+else (No)
+    |Empleado|
+    :Mostrar mensaje de error;
+    stop
+endif
+@enduml

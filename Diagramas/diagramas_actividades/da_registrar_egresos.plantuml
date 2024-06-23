@@ -1,0 +1,18 @@
+@startuml da_Registrar_Egreso
+Title Registrar Egreso
+|Empleado|
+start
+:Ingresar datos del egreso;
+|Sistema|
+:Validar datos del egreso;
+if (Datos válidos?) then (Sí)
+    :Guardar egreso en la base de datos;
+    |Empleado|
+    :Mostrar confirmación de registro;
+    stop
+else (No)
+    |Empleado|
+    :Mostrar mensaje de error;
+    stop
+endif
+@enduml

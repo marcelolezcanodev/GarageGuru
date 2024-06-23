@@ -1,0 +1,14 @@
+@startuml da_Consultar_Cita
+Title Consultar Cita
+|Empleado|
+start
+:Ingresar criterios de búsqueda;
+|Sistema|
+:Buscar citas que coincidan con los criterios;
+:Mostrar resultados de búsqueda;
+|Empleado|
+:Seleccionar cita para ver detalles;
+|Sistema|
+:Mostrar detalles de la cita;
+stop
+@enduml

@@ -1,0 +1,18 @@
+@startuml da_Registrar_Usuario
+Title Registrar Usuario
+|Empleado|
+start
+:Ingresar detalles del usuario;
+|Sistema|
+:Validar detalles del usuario;
+if (Detalles válidos?) then (Sí)
+    :Guardar usuario en la base de datos;
+    |Empleado|
+    :Mostrar confirmación de registro;
+    stop
+else (No)
+    |Empleado|
+    :Mostrar mensaje de error;
+    stop
+endif
+@enduml

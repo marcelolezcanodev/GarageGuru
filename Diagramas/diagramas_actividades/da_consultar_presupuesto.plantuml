@@ -1,0 +1,14 @@
+@startuml da_Consultar_Presupuesto
+Title Consultar Presupuesto
+|Empleado|
+start
+:Ingresar criterios de búsqueda;
+|Sistema|
+:Buscar presupuestos que coincidan con los criterios;
+:Mostrar resultados de búsqueda;
+|Empleado|
+:Seleccionar presupuesto para ver detalles;
+|Sistema|
+:Mostrar detalles del presupuesto;
+stop
+@enduml

@@ -1,0 +1,18 @@
+@startuml da_Crear_Talonario
+Title Registrar Talonario
+|Empleado|
+start
+:Ingresar detalles del talonario;
+|Sistema|
+:Validar detalles del talonario;
+if (Detalles válidos?) then (Sí)
+    :Guardar talonario en la base de datos;
+    |Empleado|
+    :Mostrar confirmación de creación;
+    stop
+else (No)
+    |Empleado|
+    :Mostrar mensaje de error;
+    stop
+endif
+@enduml

@@ -1,0 +1,22 @@
+@startuml da_Editar_Usuario
+Title Editar Usuario
+|Empleado|
+start
+:Seleccionar usuario a editar;
+|Sistema|
+:Mostrar detalles del usuario;
+|Empleado|
+:Modificar detalles del usuario;
+|Sistema|
+:Validar nuevos detalles del usuario;
+if (Detalles válidos?) then (Sí)
+    :Guardar cambios en la base de datos;
+    |Empleado|
+    :Mostrar confirmación de edición;
+    stop
+else (No)
+    |Empleado|
+    :Mostrar mensaje de error;
+    stop
+endif
+@enduml

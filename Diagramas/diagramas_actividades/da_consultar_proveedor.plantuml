@@ -1,0 +1,14 @@
+@startuml da_Consultar_Proveedor
+Title Consultar Proveedor
+|Empleado|
+start
+:Ingresar criterios de búsqueda;
+|Sistema|
+:Buscar proveedores que coincidan con los criterios;
+:Mostrar resultados de búsqueda;
+|Empleado|
+:Seleccionar proveedor para ver detalles;
+|Sistema|
+:Mostrar datos del proveedor;
+stop
+@enduml

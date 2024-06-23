@@ -12,7 +12,7 @@ package Sistema {
     USECASE "Editar Recibos" as UC_Editar
     USECASE "Consultar Recibos" as UC_Consultar
     USECASE "Actualizar Estado" as UC_Editar_Estado
-    USECASE "Eliminar Detalle" as UC_Eliminar_Detalle
+    'USECASE "Eliminar Detalle" as UC_Eliminar_Detalle
 
 }
 
@@ -20,6 +20,6 @@ User --> UC_Registrar
 User --> UC_Editar
 User --> UC_Consultar
 UC_Editar ..> UC_Editar_Estado
-UC_Editar ..> UC_Eliminar_Detalle
+'UC_Editar ..> UC_Eliminar_Detalle
 
 @enduml

@@ -1,0 +1,20 @@
+@startuml da_Crear_Presupuesto
+Title Crear Presupuesto
+|Empleado|
+start
+:Ingresar detalles del presupuesto;
+:Seleccionar cliente;
+:Seleccionar artículos;
+|Sistema|
+:Validar datos del presupuesto;
+if (Datos válidos?) then (Sí)
+    :Guardar presupuesto en la base de datos;
+    |Empleado|
+    :Mostrar confirmación de creación;
+    stop
+else (No)
+    |Empleado|
+    :Mostrar mensaje de error;
+    stop
+endif
+@enduml

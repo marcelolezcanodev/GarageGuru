@@ -1,0 +1,18 @@
+@startuml da_Eliminar_Egreso
+Title Eliminar Egreso
+|Empleado|
+start
+:Seleccionar egreso a eliminar;
+|Sistema|
+:Solicitar confirmación para eliminar;
+if (Confirmación recibida?) then (Sí)
+    :Eliminar egreso en la base de datos;
+    |Empleado|
+    :Mostrar confirmación de eliminación;
+    stop
+else (No)
+    |Sistema|
+    :Cancelar eliminación;
+    stop
+endif
+@enduml

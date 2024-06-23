@@ -1,0 +1,18 @@
+@startuml da_Registrar_Proveedor
+Title Registrar Proveedor
+|Empleado|
+start
+:Ingresar datos del proveedor;
+|Sistema|
+:Validar datos del proveedor;
+if (Detalles válidos?) then (Sí)
+    :Guardar proveedor en la base de datos;
+    |Empleado|
+    :Mostrar confirmación de registro;
+    stop
+else (No)
+    |Empleado|
+    :Mostrar mensaje de error;
+    stop
+endif
+@enduml

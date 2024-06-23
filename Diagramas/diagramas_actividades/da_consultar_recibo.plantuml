@@ -1,0 +1,14 @@
+@startuml da_Consultar_Recibo
+Title Consultar Recibo
+|Empleado|
+start
+:Ingresar criterios de búsqueda;
+|Sistema|
+:Buscar recibos que coincidan con los criterios;
+:Mostrar resultados de búsqueda;
+|Empleado|
+:Seleccionar recibo para ver detalles;
+|Sistema|
+:Mostrar detalles del recibo;
+stop
+@enduml
