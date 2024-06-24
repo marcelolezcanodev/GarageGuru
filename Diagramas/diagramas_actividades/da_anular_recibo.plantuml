@@ -1,0 +1,22 @@
+@startuml da_Actualizar_Estado_Recibo
+Title Actualizar Estado de Recibo
+|Empleado|
+start
+:Seleccionar recibo para actualizar estado;
+|Sistema|
+:Mostrar detalles del recibo;
+|Empleado|
+:Seleccionar nuevo estado;
+|Sistema|
+:Validar cambio de estado;
+if (Cambio válido?) then (Sí)
+    :Actualizar estado en la base de datos;
+    |Empleado|
+    :Mostrar confirmación de actualización;
+    stop
+else (No)
+    |Empleado|
+    :Mostrar mensaje de error;
+    stop
+endif
+@enduml

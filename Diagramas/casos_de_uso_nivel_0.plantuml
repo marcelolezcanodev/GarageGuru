@@ -1,4 +1,4 @@
-@startuml usecase
+@startuml casos_de_uso_nivel_0
 
 left to right direction
 
@@ -13,6 +13,7 @@ package Sistema {
     USECASE "Gestión de Ventas & Facturación" as UC_Ventas
     USECASE "Gestión de Cuentas a Cobrar" as UC_Cobros
     USECASE "Gestión de Compras" as UC_Compras
+    USECASE "Gestión de Vehiculos" as UC_Vehiculos
     'USECASE "Gestión de Cuentas a Pagar" as UC_Pagos
     USECASE "Configuracion del Sistema" as UC_Config
 }
@@ -21,11 +22,13 @@ Emp --> UC_Stk
 Emp --> UC_Ventas
 Emp --> UC_Cobros
 Emp --> UC_Compras
+Emp --> UC_Vehiculos
 'Emp --> UC_Pagos
 Emp --> UC_Config
 
 UC_Ventas <-- Cli
 UC_Cobros <-- Cli
+UC_Vehiculos <-- Cli
 
 UC_Compras <-- Pro
 'UC_Pagos <-- Pro

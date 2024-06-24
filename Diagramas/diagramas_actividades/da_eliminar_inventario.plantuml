@@ -12,6 +12,7 @@ if (Confirmación recibida?) then (Sí)
         :Mostrar mensaje de error;
         stop
     else (No)
+        |Sistema|
         :Eliminar inventario en la base de datos;
         |Empleado|
         :Mostrar confirmación de eliminación;

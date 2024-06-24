@@ -11,16 +11,15 @@ package Sistema {
     USECASE "Registrar Usuario" as UC_Registrar
     USECASE "Editar Usuario" as UC_Actualizar
     USECASE "Consultar Usuario" as UC_Consultar
-    USECASE "Iniciar Sesión" as UC_IniciarSesion
-    USECASE "Cerrar Sesión" as UC_CerrarSesion
+    'USECASE "Iniciar Sesión" as UC_IniciarSesion
+    'USECASE "Cerrar Sesión" as UC_CerrarSesion
 
 }
 
 User --> UC_Registrar
 User --> UC_Actualizar
 User --> UC_Consultar
-User --> UC_IniciarSesion
-User --> UC_CerrarSesion
-User --> UC_Consultar
+'User --> UC_IniciarSesion
+'User --> UC_CerrarSesion
 
 @enduml

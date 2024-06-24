@@ -1,0 +1,19 @@
+@startuml CU_InicioSesion
+
+left to right direction
+
+title Autenticacion de Usuarios
+
+actor Empleado as User
+
+package Sistema {
+
+    USECASE "Iniciar Sesión" as UC_IniciarSesion
+    USECASE "Cerrar Sesión" as UC_CerrarSesion
+
+}
+
+User --> UC_IniciarSesion
+User --> UC_CerrarSesion
+
+@enduml
