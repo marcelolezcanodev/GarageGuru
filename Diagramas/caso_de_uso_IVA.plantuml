@@ -11,13 +11,13 @@ package Sistema {
     USECASE "Crear IVA" as UC_Registrar
     USECASE "Editar IVA" as UC_Editar
     USECASE "Consultar IVA" as UC_Consultar
-    USECASE "Eliminar IVA" as UC_Eliminar
+    'USECASE "Eliminar IVA" as UC_Eliminar
 
 }
 
 User --> UC_Registrar
 User --> UC_Editar
 User --> UC_Consultar
-User --> UC_Eliminar
+'User --> UC_Eliminar
 
 @enduml

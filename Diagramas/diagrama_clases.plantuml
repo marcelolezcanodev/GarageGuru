@@ -9,6 +9,11 @@ abstract class Persona{
     -direccion: String
     -celular: String
     -email: String
+    -estado: String
+    -usuarioAlta: String
+    -fechaAlta: Datetime
+    -usuarioModificacion: String
+    -fechaModificacion: Datetime
 }
 
 ' Definición de roles de usuario
@@ -57,6 +62,10 @@ class Cita {
     -fechahora: Datetime
     -vehiculo: Vehiculo
     -estado: String
+    -usuarioAlta: String
+    -fechaAlta: Datetime
+    -usuarioModificacion: String
+    -fechaModificacion: Datetime
     +programar()
     +modificar()
     +cancelar()
@@ -76,6 +85,10 @@ class OrdenTrabajo {
     -estado: String
     -descripcion: String
     -presupuesto: Presupesto
+    -usuarioAlta: String
+    -fechaAlta: Datetime
+    -usuarioModificacion: String
+    -fechaModificacion: Datetime
     -ordenTrabajodetalle:List<OrdenTrabajoDetalle>
     +crear()
     +modificar()
@@ -102,6 +115,10 @@ class Factura {
     -exentas: double
     -totalIva: double
     -estado: String
+    -usuarioAlta: String
+    -fechaAlta: Datetime
+    -usuarioModificacion: String
+    -fechaModificacion: Datetime
     -cobro: List<Cobro>
     -itemsFactura: List<ItemFactura>
     +generar()
@@ -127,6 +144,11 @@ class Iva {
     -id: int
     -descripcion: String
     -valor: float
+    -estado: String
+    -usuarioAlta: String
+    -fechaAlta: Datetime
+    -usuarioModificacion: String
+    -fechaModificacion: Datetime
     +crear()
     +modificar()
     +eliminar()
@@ -141,6 +163,11 @@ class Talonario {
     -inicio_vigencia: Date
     -fin_vigencia: Date
     -estado: String
+    -autoimpreso: String
+    -usuarioAlta: String
+    -fechaAlta: Datetime
+    -usuarioModificacion: String
+    -fechaModificacion: Datetime
     +crear()
     +modificar()
 }
@@ -149,7 +176,14 @@ class Talonario {
 class Inventario {
     -id:int
     -items: List<ItemIventario>
-    -fechaCreacion: Datetime
+    -fechaInicial: Datetime
+    -fechaFinal: Datetime
+    -estado: String
+    -observacion: String
+    -usuarioAlta: String
+    -fechaAlta: Datetime
+    -usuarioModificacion: String
+    -fechaModificacion: Datetime
     +monitorearStock()
     +generarOrdenCompra()
 }
@@ -169,6 +203,10 @@ class ArticuloStock{
     -estado: String
     -lote: String
     -fechaVencimiento: Datetime
+    -usuarioAlta: String
+    -fechaAlta: Datetime
+    -usuarioModificacion: String
+    -fechaModificacion: Datetime
     +crear()
     +actualizar()
 }
@@ -177,6 +215,11 @@ class Categoria{
     -id: int
     -nombre: String
     -descripcion: String
+    -estado: String
+    -usuarioAlta: String
+    -fechaAlta: Datetime
+    -usuarioModificacion: String
+    -fechaModificacion: Datetime
     +crear()
     +actualizar()
 }
@@ -189,6 +232,10 @@ class Articulo {
     -precioVenta: double
     -preciocosto: double
     -cantidadMinima: int
+    -usuarioAlta: String
+    -fechaAlta: Datetime
+    -usuarioModificacion: String
+    -fechaModificacion: Datetime
     +crear()
     +modificar()
     +merma()
@@ -210,6 +257,10 @@ class Presupuesto{
     -total:double
     -condiciones:String
     -estado:String
+    -usuarioAlta: String
+    -fechaAlta: Datetime
+    -usuarioModificacion: String
+    -fechaModificacion: Datetime
     +crear()
     +consultar()
     +actualizar()
@@ -228,6 +279,11 @@ class Egresos{
     -periodo:Datetime
     -referencia: String
     -total:double
+    -estado: String
+    -usuarioAlta: String
+    -fechaAlta: Datetime
+    -usuarioModificacion: String
+    -fechaModificacion: Datetime
     +crear()
     +consultar()
 }
@@ -252,12 +308,15 @@ class Vehiculo {
     -nro_motor: String
     -nro_chasis: String
     -color: String
-    -tipo: String
     -kilometraje: int
     -propietario: Cliente
     -estado: String
     -fecha_ultima_revision: Date
     -comentarios: String
+    -usuarioAlta: String
+    -fechaAlta: Datetime
+    -usuarioModificacion: String
+    -fechaModificacion: Datetime
     +crear()
     +modificar()
 }
@@ -268,6 +327,10 @@ class Recibo {
     -cliente: Cliente
     -total: double
     -estado: String
+    -usuarioAlta: String
+    -fechaAlta: Datetime
+    -usuarioModificacion: String
+    -fechaModificacion: Datetime
     -cobro: List<Cobro>
     -detalleRecibo: List<DetalleRecibo>
     +crear()
@@ -286,9 +349,14 @@ class DetalleRecibo {
 
 class Cobro {
     -id: int
-    -tipo: String
-    -nro_documento: String
+    -formaCobro: String
+    -nroDocumento: String
     -monto: double
+    -estado: String
+    -usuarioAlta: String
+    -fechaAlta: Datetime
+    -usuarioModificacion: String
+    -fechaModificacion: Datetime
     +crear()
     +modificar()
     +eliminar()

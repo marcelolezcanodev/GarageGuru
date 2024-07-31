@@ -2,5 +2,8 @@
 [*] --> Registrado : Registro completado
 Registrado --> Pendiente : Inventario a Confirmar
 Pendiente --> Confirmado : Confirmar Inventario
+Pendiente --> Anulado : Anular Inventario
+Confirmado --> Anulado : Anular Inventario
 Confirmado --> [*]
+Anulado --> [*]
 @enduml

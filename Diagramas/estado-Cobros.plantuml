@@ -1,0 +1,6 @@
+@startuml estado-Cobro
+[*] --> Registrado : Registro completado
+Registrado --> Activo : Alta de Cobro
+Activo --> Inactivo : Baja de Cobro
+Inactivo --> [*]
+@enduml

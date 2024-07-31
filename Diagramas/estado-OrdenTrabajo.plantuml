@@ -5,7 +5,8 @@ Asignado --> Cancelado: Cancelado a Pedido de cliente
 Asignado --> Atendido : Responsable Atiende
 Atendido --> Pausado: Pausado por Responsable
 Pausado --> Atendido: Reanudado por responsable
-Atendido --> Terminado: OT terminada
+Atendido --> Terminado: OT terminado
+Terminado --> Verificado: OT verificado
 Cancelado --> [*]
-Terminado -->[*]
+Verificado -->[*]
 @enduml
