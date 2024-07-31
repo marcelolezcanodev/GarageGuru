@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Ingresos vs Egresos</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; background-color: #f4f4f9; color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 800px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        h1, h2 { color: #333; }
+        ul { list-style-type: none; padding: 0; }
+        ul li { padding: 5px 0; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+        th, td { border: 1px solid #ddd; text-align: left; padding: 8px; }
+        th { background-color: #ccc; color: black; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        .total { font-weight: bold; background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Acumuladores Rinde S.A.</h1>
+        <h2>Reporte de Ingresos vs Egresos</h2>
+        <ul>
+            <li><strong>Periodo:</strong> 01/07/2024 <strong>al</strong> 31/07/2024</li>
+        </ul>
+
+        <h2>Ingresos</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Descripción</th>
+                    <th>Monto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Venta de productos</td>
+                    <td>5,000,000</td>
+                </tr>
+                <tr>
+                    <td>Servicios</td>
+                    <td>1,500,000</td>
+                </tr>
+                <tr class="total">
+                    <td>Total Ingresos</td>
+                    <td>6,500,000</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Egresos</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Descripción</th>
+                    <th>Monto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Salarios</td>
+                    <td>2,000,000</td>
+                </tr>
+                <tr>
+                    <td>Compra de insumos</td>
+                    <td>1,200,000</td>
+                </tr>
+                <tr>
+                    <td>Gastos operativos</td>
+                    <td>800,000</td>
+                </tr>
+                <tr class="total">
+                    <td>Total Egresos</td>
+                    <td>4,000,000</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Balance Neto</h2>
+        <ul>
+            <li><strong>Total Ingresos:</strong> 6,500,000</li>
+            <li><strong>Total Egresos:</strong> 4,000,000</li>
+            <li><strong>Balance Neto:</strong> 2,500,000</li>
+        </ul>
+    </div>
+</body>
+</html>

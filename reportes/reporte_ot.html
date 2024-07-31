@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Orden de Trabajo</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; background-color: #f4f4f9; color: #000; margin: 0; padding: 20px; }
+        .container { max-width: 800px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        h1, h2 { color: #000; }
+        ul { list-style-type: none; padding: 0; }
+        ul li { padding: 5px 0; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+        th, td { border: 1px solid #ddd; text-align: left; padding: 8px; }
+        th { background-color: #ccc; color: black; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        .total { font-weight: bold; background-color: #f2f2f2; }
+        .signatures { margin-top: 40px; }
+        .signatures div { display: inline-block; width: 45%; text-align: center; }
+        .signatures div hr { margin: 40px auto 10px; border: none; border-top: 1px solid #ddd; }
+        .signatures div p { margin: 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Acumuladores Rinde S.A.</h1>
+        <ul>
+            <li><strong>Orden de Trabajo Nº</strong> 1</li>
+            <li><strong>Fecha:</strong> 26/07/2024</li>
+            <li><strong>Marca:</strong> Toyota</li>
+            <li><strong>Modelo:</strong> Starlet</li>
+            <li><strong>Año:</strong> 1.999</li>
+            <li><strong>Chapa:</strong> ABCD123</li>
+            <li><strong>Responsable:</strong> Marcelo Lezcano</li>
+            <li><strong>Comentarios:</strong> Comentario de prueba</li>
+        </ul>
+
+        <h2>Detalle</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Artículo/Concepto</th>
+                    <th>Descripción</th>
+                    <th>Cantidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>4</td>
+                    <td>Reparación</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Service</td>
+                    <td>1</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="signatures">
+            <div>
+                <hr>
+                <p>Firma del Responsable</p>
+            </div>
+            <div>
+                <hr>
+                <p>Firma del Verificador</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
