@@ -1,7 +1,6 @@
-import { Alert, Button, Checkbox, Col, Divider, Form, Input, Row } from 'antd';
+import { Alert, Button, Checkbox, Col, Form, Input, Row } from 'antd';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { AiFillGithub, AiFillGoogleCircle, AiFillWechat } from 'react-icons/ai';
 
 import { DEFAULT_USER, TEST_USER } from '@/_mock/assets';
 import { SignInReq } from '@/api/services/userService';
@@ -132,13 +131,13 @@ function LoginForm() {
           </Col>
         </Row> */}
 
-        <Divider className="!text-xs">{t('sys.login.otherSignIn')}</Divider>
+        {/* <Divider className="!text-xs">{t('sys.login.otherSignIn')}</Divider> 
 
         <div className="flex cursor-pointer justify-around text-2xl">
           <AiFillGithub />
           <AiFillWechat />
           <AiFillGoogleCircle />
-        </div>
+        </div> */}
       </Form>
     </>
   );
