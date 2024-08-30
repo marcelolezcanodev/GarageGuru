@@ -1,0 +1,42 @@
+@startwbs arbol_de_procesos
+* GarageGuru System
+** Gestion de Seguridad
+*** CRUD de Permisos
+*** CRUD de Roles
+*** Asignación de Roles a Usuarios
+*** Reportes de Auditoria
+** Gestion de Usuarios
+*** CRUD de Usuarios
+*** Inicio de Sesion de Usuarios
+*** Cierre de Sesion de Usuarios
+*** Recuperación de Contraseñas
+*** Notificaciones y Alertas
+*** Reportes de Usuarios
+** Gestion de Clientes
+*** CRUD de Clientes
+*** Asignación de Vehículos
+*** Reportes de Clientes
+** Gestion de Vehículos
+*** CRUD de Vehículos
+*** Registro de Citas
+*** Asignación de Propietario a Vehículo
+*** Historial de Mantenimiento
+*** Seguimiento de Kilometraje
+*** Reportes de Vehículos
+** Gestion de Ventas y Facturación
+*** Registro de Presupuestos
+*** Registro de Ordenes de Trabajo
+*** Seguimiento de Ordenes de Trabajo
+*** Cambio de Estado de Ordenes de Trabajo
+*** Registro de Facturas
+*** Cambio de Estado de Facturas
+*** Impresion de Facturas
+*** Reporte de Ventas por Periodo
+** Gestion de Inventarios
+*** CRUD de Articulos
+*** CRUD de Categorias
+*** Monitoreo de Stock
+*** Registro de Inventarios
+*** Cambio de Estado de Inventarios
+*** Reporte de Entrada/Salida de Articulos
+@endwbs
